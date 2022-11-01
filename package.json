@@ -1,0 +1,39 @@
+{
+  "name": "node-red-contrib-cx-user-lib",
+  "version": "0.0.1",
+  "description": "Monitors a folder with user's scripts and libraries.",
+  "main": "src/services/lib_watcher.service.js",
+  "keywords": [
+    "user",
+    "user lib",
+    "lib",
+    "cx_user_lib",
+    "cx",
+    "controlx",
+    "controlx.io"
+  ],
+  "node-red": {
+    "version": ">=2.0.0",
+    "nodes": {
+      "cx_user_lib": "src/nodes/cx_user_lib.js"
+    }
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "devDependencies": {
+    "@types/node-red": "^1.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/controlx-io/node-red-contrib-cx-user-lib.git"
+  },
+  "bugs": {
+    "url": "https://github.com/controlx-io/node-red-contrib-cx-user-lib/issues"
+  },
+  "homepage": "https://github.com/controlx-io/node-red-contrib-cx-user-lib#readme",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "typescript": "^4.8.4"
+  }
+}

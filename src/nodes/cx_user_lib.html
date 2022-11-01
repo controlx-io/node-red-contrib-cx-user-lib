@@ -1,0 +1,37 @@
+
+<!-- ############################### USER LIB STATUS ################################# -->
+<script type="text/html" data-template-name="cx-user-lib-status">
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name">
+  </div>
+</script>
+
+<script type="text/html" data-help-name="cx-user-lib-status">
+  <p>This node emits Errors and Logs from the Lib Watcher service.</p>
+</script>
+
+
+
+<!-- ========================= SCRIPTS ================================ -->
+
+<script type="text/javascript">
+  (function() {
+
+    RED.nodes.registerType("cx-user-lib-status", {
+      category: "function",
+      color: "#4db6ac",
+      defaults: {
+        name: {value: ""},
+      },
+      // inputs: 1,
+      outputs: 1,
+      icon: "alert.png",
+      paletteLabel: "user lib",
+      label() {
+        return "user lib"
+      }
+    });
+
+  })();
+</script>
