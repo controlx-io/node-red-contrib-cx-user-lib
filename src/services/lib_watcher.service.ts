@@ -61,6 +61,7 @@ async function createDeclarations(libAliasName: string) {
         text = text.replace(/export /g, '');
         text = text.replace('{};', '');
         text = text.replace('nodeRedExport', moduleName);
+        text = text.replace(/import.*\n/g, '');
 
         combinedDeclarations += text;
 
