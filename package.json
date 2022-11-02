@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-cx-user-lib",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Monitors a folder with user's scripts and libraries.",
   "main": "src/services/lib_watcher.service.js",
   "keywords": [

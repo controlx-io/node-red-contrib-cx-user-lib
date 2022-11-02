@@ -32,8 +32,11 @@ const logger = new logger_service_1.default("LibWatcherService");
 const lib = {};
 const libAlias = 'uLib';
 const combinedDeclarationFileName = 'node-red-contrib-cx-user-lib.d.ts';
-const typesPath = (process.env.NODE_RED_HOME) ?
-    path.resolve(process.env.NODE_RED_HOME + '/../@node-red/editor-client/public/types') : '';
+let typesPath = (process.env.NODE_RED_HOME) ?
+    path.resolve(process.env.NODE_RED_HOME + '/node_modules/@node-red/editor-client/public/types') : '';
+if (typesPath && !fs.existsSync(typesPath))
+    typesPath =
+        path.resolve(process.env.NODE_RED_HOME + '/../@node-red/editor-client/public/types');
 const otherTypesPath = typesPath ? typesPath + '/other' : '';
 let isTypesFolderPresent = false;
 if (typesPath && fs.existsSync(typesPath)) {
@@ -71,6 +74,7 @@ async function createDeclarations(libAliasName) {
         text = text.replace(/export /g, '');
         text = text.replace('{};', '');
         text = text.replace('nodeRedExport', moduleName);
+        text = text.replace(/import.*\n/g, '');
         combinedDeclarations += text;
         declarations += `${moduleName}: typeof ${moduleName},`;
     }

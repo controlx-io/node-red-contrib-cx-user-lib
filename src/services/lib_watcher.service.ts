@@ -7,8 +7,13 @@ const lib: {[key:string]: any} = {};
 const libAlias = 'uLib';
 const combinedDeclarationFileName = 'node-red-contrib-cx-user-lib.d.ts';
 
-const typesPath = (process.env.NODE_RED_HOME) ?
-    path.resolve(process.env.NODE_RED_HOME + '/../@node-red/editor-client/public/types') : '';
+let typesPath = (process.env.NODE_RED_HOME) ?
+    path.resolve(process.env.NODE_RED_HOME + '/node_modules/@node-red/editor-client/public/types') : '';
+
+if (typesPath && !fs.existsSync(typesPath))
+    typesPath =
+        path.resolve(process.env.NODE_RED_HOME + '/../@node-red/editor-client/public/types');
+
 
 const otherTypesPath = typesPath ? typesPath + '/other' : '';
 
