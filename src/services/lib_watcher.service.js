@@ -27,14 +27,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 const fs = __importStar(require("fs"));
 const logger_service_1 = __importDefault(require("./logger.service"));
+const path = __importStar(require("path"));
 const logger = new logger_service_1.default("LibWatcherService");
 const lib = {};
 const libAlias = 'uLib';
 const combinedDeclarationFileName = 'node-red-contrib-cx-user-lib.d.ts';
-const typesPath = process.cwd() + '/node_modules/@node-red/editor-client/public/types';
-const otherTypesPath = process.cwd() + '/node_modules/@node-red/editor-client/public/types/other';
+const typesPath = (process.env.NODE_RED_HOME) ?
+    path.resolve(process.env.NODE_RED_HOME + '/../@node-red/editor-client/public/types') : '';
+const otherTypesPath = typesPath ? typesPath + '/other' : '';
 let isTypesFolderPresent = false;
-if (fs.existsSync(typesPath)) {
+if (typesPath && fs.existsSync(typesPath)) {
     if (!fs.existsSync(otherTypesPath))
         fs.mkdirSync(otherTypesPath);
     isTypesFolderPresent = true;

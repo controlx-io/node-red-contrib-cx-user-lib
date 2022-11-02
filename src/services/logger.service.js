@@ -4,9 +4,9 @@ exports.ERRORS = void 0;
 let callbackIndex = 0;
 let errorCallbackMap = new Map();
 let lastLoggedAt = Date.now();
-const isDev = !!process.env.CX_DEV;
+const isDev = !!process.env.CX_DEV_USER_LIB;
 if (isDev)
-    console.warn("Running in CX development mode");
+    console.warn("Running 'node-red-contrib-cx-user-lib' in CX development mode");
 class Logger {
     constructor(className) {
         this.tag = className;

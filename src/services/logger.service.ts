@@ -5,8 +5,8 @@ let errorCallbackMap: Map<number, ErrorCallback> = new Map();
 
 let lastLoggedAt = Date.now();
 
-const isDev = !!process.env.CX_DEV;
-if (isDev) console.warn("Running in CX development mode");
+const isDev = !!process.env.CX_DEV_USER_LIB;
+if (isDev) console.warn("Running 'node-red-contrib-cx-user-lib' in CX development mode");
 
 export default class Logger {
     private readonly tag: string;
